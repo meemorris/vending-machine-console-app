@@ -1,4 +1,4 @@
-# capstone_projects
+# vending machine console application
 
 Fourth week of Tech Elevator worked on a pair programming assignment creating a vending machine console application using Java, following OOP and MVC. 
 This project has a menu and a submenu. When the console app is started, it reads in an inventory file, updating what items are in each slot based on the contents of the file.
