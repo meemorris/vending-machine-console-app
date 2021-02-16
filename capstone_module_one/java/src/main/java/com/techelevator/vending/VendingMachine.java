@@ -19,7 +19,7 @@ public class VendingMachine {
     private String inventoryFile;
     private BigDecimal totalSales = new BigDecimal("0.00");
     private static final DecimalFormat f = new DecimalFormat("#0.00");
-    private static final MathContext mc = new MathContext(2);
+//    private static final MathContext mc = new MathContext(2);
     private static final BigDecimal QUARTER_VALUE = new BigDecimal("0.25");
     private static final BigDecimal DIME_VALUE = new BigDecimal("0.10");
     private static final BigDecimal NICKEL_VALUE = new BigDecimal("0.05");
@@ -135,13 +135,13 @@ public class VendingMachine {
 
         if (customerBalance.compareTo(BigDecimal.ZERO) > 0) {
 
-            BigDecimal quarters = customerBalance.divideToIntegralValue(QUARTER_VALUE, mc);
-            balanceAfterQuarters = customerBalance.remainder(QUARTER_VALUE, mc);
+            BigDecimal quarters = customerBalance.divideToIntegralValue(QUARTER_VALUE);
+            balanceAfterQuarters = customerBalance.remainder(QUARTER_VALUE);
 
-            BigDecimal dimes = balanceAfterQuarters.divideToIntegralValue(DIME_VALUE, mc);
-            balanceAfterDimes = balanceAfterQuarters.remainder(DIME_VALUE, mc);
+            BigDecimal dimes = balanceAfterQuarters.divideToIntegralValue(DIME_VALUE);
+            balanceAfterDimes = balanceAfterQuarters.remainder(DIME_VALUE);
 
-            BigDecimal nickels = balanceAfterDimes.divideToIntegralValue(NICKEL_VALUE, mc);
+            BigDecimal nickels = balanceAfterDimes.divideToIntegralValue(NICKEL_VALUE);
 
 
             VmLog.log(" GIVE CHANGE: $" + customerBalance + " $" + f.format(customerBalance = BigDecimal.ZERO));
